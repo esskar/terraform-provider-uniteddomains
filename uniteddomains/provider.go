@@ -2,11 +2,10 @@ package uniteddomains
 
 import (
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
-	"github.com/hashicorp/terraform-plugin-sdk/terraform"
 )
 
 // Provider returns a schema.Provider for UnitedDomains.
-func Provider() terraform.ResourceProvider {
+func Provider() *schema.Provider {
 	return &schema.Provider{
 		Schema: map[string]*schema.Schema{
 			"email": {
@@ -34,11 +33,8 @@ func Provider() terraform.ResourceProvider {
 				Description: "Content or path of a Root CA to be used to verify UnitedDomains's SSL certificate",
 			},
 		},
-		/*
-			ResourcesMap: map[string]*schema.Resource{
-				"powerdns_zone":   resourcePDNSZone(),
-				"powerdns_record": resourcePDNSRecord(),
-			},*/
+
+		ResourcesMap: map[string]*schema.Resource{},
 
 		ConfigureFunc: providerConfigure,
 	}
