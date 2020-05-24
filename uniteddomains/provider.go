@@ -36,6 +36,10 @@ func Provider() *schema.Provider {
 
 		ResourcesMap: map[string]*schema.Resource{},
 
+		DataSourcesMap: map[string]*schema.Resource{
+			"uniteddomains_dns_domains": dataSourceDnsDomains(),
+		},
+
 		ConfigureFunc: providerConfigure,
 	}
 }

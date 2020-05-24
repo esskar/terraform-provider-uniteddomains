@@ -19,7 +19,6 @@ type Config struct {
 
 // Client returns a new client for accessing UnitedDomains
 func (c *Config) Client() (*Client, error) {
-
 	tlsConfig := &tls.Config{}
 
 	if c.CACertificate != "" {
@@ -42,7 +41,7 @@ func (c *Config) Client() (*Client, error) {
 		return nil, fmt.Errorf("Error setting up UnitedDomains client: %s", err)
 	}
 
-	log.Printf("[INFO] UnitedDomains Client configured")
+	log.Print("UnitedDomains Client configured")
 
 	return client, nil
 }
